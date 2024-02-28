@@ -1,0 +1,25 @@
+{
+  "name": "testelectron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "build": {
+    "publish": {
+      "provider": "github",
+      "owner": "ArVeM1",
+      "repo": "your_repository_name"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^29.1.0",
+    "electron-updater": "^6.1.8"
+  }
+}
