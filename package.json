@@ -1,13 +1,13 @@
 {
   "name": "testelectron",
-  "version": "13.0.0",
+  "version": "14.0.0",
   "description": "",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "pack": "electron-packager . Electron-test",
     "build": "electron-builder",
-    "package": "set GH_TOKEN=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 && electron-builder -p always",
+    "package": "set GH_TOKEN=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 && electron-builder -p always",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "build": {

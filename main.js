@@ -26,6 +26,7 @@ console.log(app.getVersion());
 
 app.on('ready', () => {
     autoUpdater.checkForUpdates();
+    log.info(`Current version ${app.getVersion()}`)
     createWindow();
 })
 
@@ -44,6 +45,8 @@ autoUpdater.on('update-available', function(_event, releaseNotes, releaseName) {
 });
 
 autoUpdater.on('update-available', function(_event, releaseNotes, releaseName) {
+    log.info(JSON.stringify(releaseNotes))
+    log.info(releaseName)
     const dialogOpts = {
         type: "info",
         buttons: [],
@@ -76,8 +79,7 @@ autoUpdater.on('update-available', function(_event, releaseNotes, releaseName) {
 // })
 
 autoUpdater.on('update-downloaded', function(_event, releaseNotes, releaseName) {
-    log.info(JSON.stringify(releaseNotes))
-    log.info(releaseName)
+    progressBar.setCompleted();
     const dialogOpts = {
         type: "info",
         buttons: ["Restart"],
@@ -88,8 +90,7 @@ autoUpdater.on('update-downloaded', function(_event, releaseNotes, releaseName) 
     dialog.showMessageBox(dialogOpts).then((returnValue) => {
         if (returnValue.response === 0) autoUpdater.quitAndInstall();
     })
-    log.info(`updated downloaded. Current version ${app.getVersion()}`)
-    progressBar.setCompleted();
+    log.info(`updated downloaded. Last version ${app.getVersion()}`)
 });
 
 autoUpdater.on('update-not-available', function(_event, releaseNotes, releaseName) {
