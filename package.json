@@ -1,25 +1,44 @@
 {
   "name": "testelectron",
-  "version": "1.0.0",
+  "version": "13.0.0",
   "description": "",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
+    "pack": "electron-packager . Electron-test",
     "build": "electron-builder",
+    "package": "set GH_TOKEN=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 && electron-builder -p always",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "build": {
-    "publish": {
-      "provider": "github",
-      "owner": "ArVeM1",
-      "repo": "your_repository_name"
+    "appId": "com.amir.autoupdater",
+    "productName": "Electron-test",
+    "win": {
+      "publish": [
+        "github"
+      ]
+    },
+    "directories": {
+      "output": "dist"
     }
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.61",
+    "@electron-forge/maker-deb": "^6.0.0-beta.61",
+    "@electron-forge/maker-dmg": "^6.0.0-beta.61",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.61",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
+    "@electron-forge/maker-zip": "^6.0.0-beta.61",
     "electron": "^29.1.0",
+    "electron-builder": "^24.12.0",
+    "electron-prebuilt-compile": "^8.2.0"
+  },
+  "dependencies": {
+    "electron-log": "^5.1.1",
+    "electron-progressbar": "^2.2.1",
     "electron-updater": "^6.1.8"
   }
 }
